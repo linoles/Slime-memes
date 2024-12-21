@@ -1,6 +1,5 @@
 import "@/app/ui/global.css";
 import GreetPage from "./ui/greetPage";
-import clsx from "clsx";
 
 export default function Page() {
   return (
