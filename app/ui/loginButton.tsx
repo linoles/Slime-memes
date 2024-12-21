@@ -2,7 +2,6 @@
 
 import { inter } from "@/app/ui/fonts";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 export default function LoginButton() {
   const pathname = usePathname();
