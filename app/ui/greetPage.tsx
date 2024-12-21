@@ -8,8 +8,8 @@ export default function GreetPage() {
       className="flex flex-col items-center justify-center w-full h-full left-appearence-trans cursor-pointer"
     >
       <div className="flex flex-col items-center justify-center w-full h-full left-appearence-trans cursor-pointer">
-        <h1 className="text-7xl font-bold text-slate-800">Slime Memes</h1>
-        <h2 className={`${inter.className} text-4xl text-gray-700 font-medium`}>
+        <h1 className="lg:text-7xl md:text-5xl sm:text-3xl font-bold text-slate-800 text-center">Slime Memes</h1>
+        <h2 className={`${inter.className} lg:text-4xl mg:text-3xl sm:text-2xl text-gray-700 font-medium text-center`}>
           Лучшие мемы со всего интернета
         </h2>
       </div>
