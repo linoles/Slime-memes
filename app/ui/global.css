@@ -8,3 +8,14 @@
   padding: 0;
   user-select: none;
 }
+
+.left-appearence-trans {
+  position: relative;
+  animation: left-appearence-trans 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes left-appearence-trans {
+  0% { left: -1000px; opacity: 0; }
+  50% { left: -500px; opacity: 0.5; transform: scale(1.1); }
+  100% { left: 0px; opacity: 1; transform: scale(1); }
+}
