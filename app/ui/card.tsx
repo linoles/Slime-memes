@@ -8,7 +8,6 @@ export function Card({
   heading,
   description,
   bg,
-  width,
   color,
   photoPath,
 }: CardProps) {
@@ -66,7 +65,6 @@ export function PlusesCards() {
       description="Конечно же, в первую очередь, веселье. Для чего же ещё может быть канал по мемам?<br>Здесь вы получите самые угарные мемы, с которых смешно даже если это баян. :) Кстати, у нас их нет! (Почти)"
       bg="#a3a3a3"
       color="white"
-      width={200}
       photoPath="/fun.jpg"
     />
   );
