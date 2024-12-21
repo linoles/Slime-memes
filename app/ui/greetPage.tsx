@@ -5,7 +5,7 @@ export default function GreetPage() {
   return (
     <Link
       href="https://t.me/slimememes08"
-      className="flex flex-col items-center justify-center w-full h-fit left-appearence-trans cursor-pointer"
+      className="flex flex-col items-center justify-center w-full h-fit left-appearence-trans cursor-pointer relative top-1/2"
     >
       <div className="flex flex-col items-center justify-center w-full h-full left-appearence-trans cursor-pointer">
         <h1 className="lg:text-7xl md:text-5xl sm:text-4xl text-3xl font-bold text-slate-800 text-center">Slime Memes</h1>
