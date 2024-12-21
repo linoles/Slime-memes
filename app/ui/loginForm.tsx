@@ -1,4 +1,4 @@
-'use client';
+/* 'use client';
 
 import { handleLogin } from "@/app/lib/actions";
 import { useActionState } from "react";
@@ -15,4 +15,4 @@ export default function LoginForm() {
       <form action={formAction}></form>
     </div>
   )
-}
+} */

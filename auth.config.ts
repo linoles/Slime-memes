@@ -1,4 +1,4 @@
-import type { NextAuthOptions } from "next-auth";
+/* import type { NextAuthOptions } from "next-auth";
 
 export const authConfig: NextAuthOptions = {
   pages: {
@@ -14,4 +14,4 @@ export const authConfig: NextAuthOptions = {
     },
   },
   providers: [],
-};
+}; */
