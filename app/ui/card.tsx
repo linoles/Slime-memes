@@ -3,6 +3,7 @@
 import type { CardProps } from "@/app/lib/definitions";
 import Image from "next/image";
 import { robotoCondensed } from "@/app/ui/fonts";
+import { useState } from "react";
 
 export function Card({
   heading,
@@ -26,23 +27,31 @@ export function Card({
     element?.classList.add("hidden");
   }
 
+  document.addEventListener("resize", () => {
+    setWidth(width2)
+  });
+
+  const [width, setWidth] = useState(400);
+  const [height, setHeight] = useState(600);
+  const [width2, setWidth2] = useState(400);
+
   return (
     <div
       style={cardStyle}
-      className="flex flex-col items-center justify-start h-fit rounded-3xl ml-5"
+      className="flex flex-col items-center justify-start h-fit rounded-3xl ml-5 mr-5 transition ease-in-out duration-500"
       onMouseOver={funcDesc}
       onMouseLeave={hideDesc}
     >
       <Image
         src={photoPath}
         alt="Picture of the author"
-        width={400}
+        width={width2}
         height={600}
-        className="rounded-3xl z-0"
+        className={`rounded-3xl z-0 ${heading.replaceAll(" ", "-")}`}
       />
       <div
-        style={{ width: "400px", height: "600px" }}
-        className={`absolute z-10 flex flex-col items-left justify-end pl-6 pb-6`}
+        style={{width: width, height: height}}
+        className={`absolute z-10 flex flex-col items-left justify-end sm:pl-6 sm:pb-6 pl-2 pb-2 transition ease-in-out duration-500 ${heading.replaceAll(" ", "-")}`}
       >
         <h4
           className={`${robotoCondensed.className} text-2xl font-medium`}
@@ -50,19 +59,22 @@ export function Card({
         >
           {heading.toUpperCase()}
         </h4>
-        <p className={"text-lg hidden photoDesc " + heading.replaceAll(" ", "-")} style={{ color: color }}>
+        <p className={`text-lg hidden photoDesc ${heading.replaceAll(" ", "-")}`} style={{ color: color }}>
           {description}
         </p>
       </div>
     </div>
   );
+
+
+
 }
 
 export function PlusesCards() {
   const FunCard = (
     <Card
-      heading="Веселье"
-      description="Конечно же, в первую очередь, веселье. Для чего же ещё может быть канал по мемам?<br>Здесь вы получите самые угарные мемы, с которых смешно даже если это баян. :) Кстати, у нас их нет! (Почти)"
+      heading="СМЕХ"
+      description="Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)"
       bg="#a3a3a3"
       color="white"
       photoPath="/fun.jpg"
