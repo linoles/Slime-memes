@@ -3,7 +3,7 @@
 import type { CardProps } from "@/app/lib/definitions";
 import Image from "next/image";
 import { robotoCondensed } from "@/app/ui/fonts";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function Card({
   heading,
@@ -15,42 +15,39 @@ export function Card({
   const cardStyle = {
     backgroundColor: bg,
   };
-
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [headingTransform, setHeadingTransform] = useState(0);
 
-  const toggleDescription1 = () => {
-    setIsDescriptionVisible(true);
+  const handleMouseOver = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    setHeadingTransform(-100);
+    setHoverTimeout(
+      setTimeout(() => {
+        setIsDescriptionVisible(true);
+      }, 200)
+    );
   };
-  const toggleDescription2 = () => {
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
     setIsDescriptionVisible(false);
+    setHoverTimeout(
+      setTimeout(() => {
+        setHeadingTransform(0);
+      }, 200)
+    );
   };
-
-  const [width, setWidth] = useState(400);
-  const [height, setHeight] = useState(600);
-  const [width2, setWidth2] = useState(400);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(width2);
-    };
-
-    document.addEventListener("resize", handleResize);
-
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    };
-  }, [width2]);
 
   return (
     <div
       style={cardStyle}
-      className="flex flex-col items-center justify-start h-fit rounded-3xl ml-5 mr-5 transition ease-in-out duration-500"
-      onMouseOver={toggleDescription1}
-      onMouseLeave={toggleDescription2}
+      className="flex flex-col items-center justify-start w-screen h-fit rounded-3xl ml-5 mr-5 transition ease-in-out duration-500"
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
     >
       <div
-        style={{ width: "400px", height: "600px" }}
-        className={`absolute z-10 sm:pl-6 sm:pb-6 pl-2 pb-2 ${heading.replaceAll(
+        className={`absolute w-[400px] h-[600px] ml1:w-[200px] ml1:h-[300px] ml2:w-[300px] ml2:h-[450px] ml3:w-[400px] ml3:h-[600px] sm:pl-8 sm:pb-10 pl-4 pb-5 hover:brightness-75 transition ease-in-out duration-1000 cursor-pointer ${heading.replaceAll(
           " ",
           "-"
         )}`}
@@ -58,21 +55,26 @@ export function Card({
         <Image
           src={photoPath}
           alt={heading}
-          width={width2}
-          height={height}
-          className={`absolute rounded-3xl z-0 ${heading.replaceAll(
+          width={400}
+          height={600}
+          className={`absolute w-[400px] h-[600px] ml1:w-[200px] ml1:h-[300px] ml2:w-[300px] ml2:h-[450px] ml3:w-[400px] ml3:h-[600px] rounded-3xl left-0 z-0 ${heading.replaceAll(
             " ",
             "-"
           )}`}
         />
         <h4
-          className={`${robotoCondensed.className} absolute z-10 text-2xl font-medium bottom-0`}
-          style={{ color: color }}
+          className={`${robotoCondensed.className} absolute z-10 text-2xl font-medium bottom-0 transition ease-in-out duration-300 transform`}
+          style={{
+            color: color,
+            transform: `translateY(${headingTransform}px)`,
+          }}
         >
           {heading.toUpperCase()}
         </h4>
         <p
-          className={`absolute bottom-0 text-lg z-10 ${isDescriptionVisible ? "" : "hidden"}`}
+          className={`absolute bottom-0 text-lg z-10 ml1:text-[10px] leading-tight ml2:text-[13px] ml3:text-[16px] transition ease-in-out duration-500 mb-3 ${
+            isDescriptionVisible ? "opacity-100" : "opacity-0"
+          }`}
           style={{ color: color }}
         >
           {description}
@@ -84,14 +86,23 @@ export function Card({
 
 export function PlusesCards() {
   const FunCard = (
-    <Card
-      heading="СМЕХ"
-      description="Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)"
-      bg="#a3a3a3"
-      color="white"
-      photoPath="/fun.jpg"
-    />
+    <div className="pt-5">
+      <Card
+        heading="СМЕХ"
+        description="Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)"
+        bg="#a3a3a3"
+        color="white"
+        photoPath="/fun.jpg"
+      />
+      {/*<Card
+        heading="СМЕХ"
+        description="Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)"
+        bg="#a3a3a3"
+        color="white"
+        photoPath="/fun.jpg"
+      />*/}
+    </div>
   );
 
-  return <div className="pt-10">{FunCard}</div>;
+  return FunCard;
 }
