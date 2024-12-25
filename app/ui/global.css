@@ -4,18 +4,36 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 .left-appearence-trans {
   position: relative;
-  animation: left-appearence-trans 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation: 
+    left-appearence-trans 
+    1.5s 
+    cubic-bezier(0.68, -0.55, 0.27, 1.55)
+    forwards;
 }
 
 @keyframes left-appearence-trans {
-  0% { left: -1000px; opacity: 0; }
-  50% { left: -500px; opacity: 0.5; transform: scale(1.1); }
-  100% { left: 0px; opacity: 1; transform: scale(1); }
+  0% {
+    left: -1000px;
+    opacity: 0;
+    transform: scale(0.5) rotateX(90deg);
+    letter-spacing: 1px;
+  }
+  50% {
+    left: -500px;
+    opacity: 0.5;
+    transform: scale(1.1) rotateX(0deg);
+    letter-spacing: 0.5px;
+  }
+  100% {
+    left: 0px;
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+    letter-spacing: 0.25px;
+  }
 }

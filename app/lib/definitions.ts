@@ -11,4 +11,5 @@ export interface CardProps {
   bg: string;
   color: string;
   photoPath: string;
+  id: number;
 }
