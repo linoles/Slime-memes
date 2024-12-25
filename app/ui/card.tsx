@@ -16,7 +16,7 @@ export function Card({
   const cardStyle: React.CSSProperties = {
     backgroundColor: bg,
   };
-  if (id != 0) {
+  if (id != 0 && window) {
     const marginTop = (() => {
       if (window.innerWidth >= 410) return "0px";
       if (window.innerWidth >= 310) return 465*id + "px";
