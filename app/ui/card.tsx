@@ -3,7 +3,7 @@
 import type { CardProps } from "@/app/lib/definitions";
 import Image from "next/image";
 import { robotoCondensed } from "@/app/ui/fonts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Card({
   heading,
@@ -13,22 +13,29 @@ export function Card({
   photoPath,
   id,
 }: CardProps) {
-  const cardStyle: React.CSSProperties = {
-    backgroundColor: bg,
-  };
-  if (id != 0 && window) {
-    const marginTop = (() => {
-      if (window.innerWidth >= 410) return "0px";
-      if (window.innerWidth >= 310) return 465*id + "px";
-      if (window.innerWidth >= 210) return 315*id + "px";
-      if (window.innerWidth >= 110) return 165*id + "px";
-      return 0;
-    })();
-    if (marginTop) cardStyle.marginTop = marginTop;
-  }
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const [headingTransform, setHeadingTransform] = useState(0);
+  const [marginTop, setMarginTop] = useState<string>("0px");
+
+  useEffect(() => {
+    const updateMarginTop = () => {
+      if (id !== 0) {
+        if (window.innerWidth >= 410) setMarginTop("0px");
+        else if (window.innerWidth >= 310) setMarginTop(`${465 * id}px`);
+        else if (window.innerWidth >= 210) setMarginTop(`${315 * id}px`);
+        else if (window.innerWidth >= 110) setMarginTop(`${165 * id}px`);
+        else setMarginTop("0px");
+      }
+    };
+
+    updateMarginTop();
+    window.addEventListener("resize", updateMarginTop);
+
+    return () => {
+      window.removeEventListener("resize", updateMarginTop);
+    };
+  }, [id]);
 
   const handleMouseOver = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
@@ -54,7 +61,7 @@ export function Card({
 
   return (
     <div
-      style={cardStyle}
+      style={{ backgroundColor: bg, marginTop }}
       className={`
         relative flex flex-col items-center justify-start w-fit rounded-3xl transition ease-in-out duration-500
         ml3:ml-[210px] ml3:mr-[210px] ml3:mb-0 mb-[590px] mr-0
