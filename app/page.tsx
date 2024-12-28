@@ -1,3 +1,5 @@
+"use client";
+
 import "@/app/ui/global.css";
 import GreetPage from "@/app/ui/greetPage";
 import { PlusesCards } from "./ui/card";
@@ -12,6 +14,7 @@ export default function Page() {
         </p>
         <PlusesCards />
       </div>
+      <script src="@/app/ui/global.js"></script>
     </main>
   );
 }

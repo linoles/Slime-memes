@@ -3,7 +3,38 @@
 import type { CardProps } from "@/app/lib/definitions";
 import Image from "next/image";
 import { robotoCondensed } from "@/app/ui/fonts";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "@/app/ui/global.css";
+
+export const cards = [
+  {
+    heading: "СМЕХ",
+    description:
+      "Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)",
+    bg: "#a3a3a3",
+    color: "white",
+    photoPath: "/fun.jpg",
+    id: 0,
+  },
+  {
+    heading: "ОТЛИЧНОЕ КОМЬЮНИТИ",
+    description:
+      "А как же без комьюнити самых лучших подписчиков, постоянно обсуждающих мемы нашего канала? И они присутствуют в нашем дружном канале!",
+    bg: "#a3a3a3",
+    color: "white",
+    photoPath: "/fun.jpg",
+    id: 1,
+  },
+  {
+    heading: "МЕМЫ ПРО АДМИНОВ",
+    description:
+      "Также в нашем канале присутствуют интересные и смешные мемы про админов, которые уж точно не могут быть в другом канале.",
+    bg: "#a3a3a3",
+    color: "white",
+    photoPath: "/fun.jpg",
+    id: 2,
+  },
+];
 
 export function Card({
   heading,
@@ -17,15 +48,15 @@ export function Card({
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const [headingTransform, setHeadingTransform] = useState(0);
   const [marginTop, setMarginTop] = useState<string>("0px");
+  const [imageBrightness, setImageBrightness] = useState(100);
 
   useEffect(() => {
     const updateMarginTop = () => {
       if (id !== 0) {
-        if (window.innerWidth >= 410) setMarginTop("0px");
-        else if (window.innerWidth >= 310) setMarginTop(`${465 * id}px`);
-        else if (window.innerWidth >= 210) setMarginTop(`${315 * id}px`);
-        else if (window.innerWidth >= 110) setMarginTop(`${165 * id}px`);
-        else setMarginTop("0px");
+        if (window.innerWidth >= 420) setMarginTop("0px");
+        else if (window.innerWidth >= 320) setMarginTop(`${465 * id}px`);
+        else if (window.innerWidth >= 220) setMarginTop(`${315 * id}px`);
+        else if (window.innerWidth >= 120) setMarginTop(`${165 * id}px`);
       }
     };
 
@@ -39,9 +70,10 @@ export function Card({
 
   const handleMouseOver = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    if (window.innerWidth > 410) setHeadingTransform(-90);
-    else if (window.innerWidth > 310) setHeadingTransform(-75);
-    else if (window.innerWidth > 210) setHeadingTransform(-60);
+    setImageBrightness(75);
+    if (window.innerWidth > 420) setHeadingTransform(-90);
+    else if (window.innerWidth > 320) setHeadingTransform(-75);
+    else if (window.innerWidth > 220) setHeadingTransform(-60);
     setHoverTimeout(
       setTimeout(() => {
         setIsDescriptionVisible(true);
@@ -51,6 +83,7 @@ export function Card({
 
   const handleMouseLeave = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
+    setImageBrightness(100);
     setIsDescriptionVisible(false);
     setHoverTimeout(
       setTimeout(() => {
@@ -61,14 +94,13 @@ export function Card({
 
   return (
     <div
-      style={{ backgroundColor: bg, marginTop }}
+      style={{ marginTop: marginTop }}
       className={`
         relative flex flex-col items-center justify-start w-fit rounded-3xl transition ease-in-out duration-500
-        ml3:ml-[210px] ml3:mr-[210px] ml3:mb-0 mb-[590px] mr-0
+        mb-[590px]
+        ml3:w-[420px] ml3:h-[600px] ml3:mb-0
+        cards
       `}
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-      id={`${id}`}
     >
       <div
         className={`
@@ -77,19 +109,23 @@ export function Card({
           ml2:w-[300px] ml2:h-[450px] 
           ml3:w-[400px] ml3:h-[600px] 
           ${heading.replaceAll(" ", "-")}
+          id${id}
         `}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
       >
         <Image
           src={photoPath}
           alt={heading}
           width={400}
           height={600}
+          style={{ filter: `brightness(${imageBrightness}%)` }}
           className={`
             absolute w-[400px] h-[600px] rounded-3xl z-0 transition ease-in-out duration-1000 
             ml1:w-[200px] ml1:h-[300px] 
             ml2:w-[300px] ml2:h-[450px] 
             ml3:w-[400px] ml3:h-[600px] 
-            hover:brightness-75 
+            brightness-${imageBrightness} 
             ${heading.replaceAll(" ", "-")}
           `}
         />
@@ -125,33 +161,37 @@ export function Card({
   );
 }
 
-export function PlusesCards() {
+export const PlusesCards = () => {
+  const ref = React.createRef<HTMLDivElement>();
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollLeft =
+        ref.current.scrollWidth / 2 - ref.current.clientWidth / 2;
+    }
+  }, []);
   return (
-    <div className="flex">
-      <Card
-        heading="СМЕХ"
-        description="Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)"
-        bg="#a3a3a3"
-        color="white"
-        photoPath="/fun.jpg"
-        id={0}
-      />
-      <Card
-        heading="ОТЛИЧНОЕ КОМЬЮНИТИ"
-        description="А как же без комьюнити самых лучших подписчиков, постоянно обсуждающих мемы нашего канала? И они присутствуют в нашем дружном канале!"
-        bg="#a3a3a3"
-        color="white"
-        photoPath="/fun.jpg"
-        id={1}
-      />
-      <Card
-        heading="МЕМЫ ПРО АДМИНОВ"
-        description="Также в нашем канале присутствуют интересные и смешные мемы про админов, которые уж точно не могут быть в другом канале."
-        bg="#a3a3a3"
-        color="white"
-        photoPath="/fun.jpg"
-        id={2}
-      />
+    <div
+      ref={ref}
+      className="flex flex-nowrap overflow-x-auto ml3:w-full ml3:max-w-[1260px] min-scrollbar x-scroll-center"
+      style={{
+        scrollbarColor: "#e7e5e4 #f4f4f5",
+        scrollbarWidth: "thin",
+        scrollbarGutter: "stable",
+        scrollBehavior: "smooth",
+      }}
+    >
+      {cards.map((card) => (
+        <div key={card.id}>
+          <Card
+            heading={card.heading}
+            description={card.description}
+            bg={card.bg}
+            color={card.color}
+            photoPath={card.photoPath}
+            id={card.id}
+          />
+        </div>
+      ))}
     </div>
   );
-}
+};

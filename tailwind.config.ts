@@ -14,9 +14,9 @@ export default {
       },
     },
     screens: {
-      'ml1': '210px',
-      'ml2': '310px',
-      'ml3': '410px',
+      'ml1': '220px',
+      'ml2': '320px',
+      'ml3': '420px',
       'sm': '640px',
       'md': '768px',
       'lg': '1024px', 

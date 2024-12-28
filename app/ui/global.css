@@ -8,6 +8,10 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow: hidden;
+}
+
 .left-appearence-trans {
   position: relative;
   animation: 
@@ -36,4 +40,20 @@
     transform: scale(1) rotateX(0deg);
     letter-spacing: 0.25px;
   }
+}
+
+min-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+min-scrollbar::-webkit-scrollbar-track {
+  background: white;
+}
+
+min-scrollbar::-webkit-scrollbar-thumb {
+  background: red;
+}
+
+min-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: blue;
 }
