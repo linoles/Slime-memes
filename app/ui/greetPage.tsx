@@ -4,7 +4,7 @@ import { inter } from "./fonts";
 export default function GreetPage() {
   return (
     <Link
-      href="mailto:example@gmail.com"
+      href="https://t.me/slimememes08"
       className="flex flex-col items-center justify-center w-full h-fit cursor-pointer left-appearence-trans"
     >
       <div className="flex flex-col items-center justify-center w-full h-full cursor-pointer">
