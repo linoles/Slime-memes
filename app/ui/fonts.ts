@@ -1,4 +1,4 @@
-import { Inter, Nunito_Sans, Roboto_Condensed } from "next/font/google";
+import { Inter, Nunito_Sans, Roboto_Condensed, Tektur } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -12,3 +12,7 @@ export const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   variable: "--font-roboto-condensed",
 });
+export const tektur = Tektur({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-tektur",
+})
