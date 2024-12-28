@@ -14,7 +14,6 @@ export default function Page() {
         </p>
         <PlusesCards />
       </div>
-      <script src="@/app/ui/global.js"></script>
     </main>
   );
 }

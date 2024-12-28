@@ -41,19 +41,3 @@ html, body {
     letter-spacing: 0.25px;
   }
 }
-
-min-scrollbar::-webkit-scrollbar {
-  width: 5px;
-}
-
-min-scrollbar::-webkit-scrollbar-track {
-  background: white;
-}
-
-min-scrollbar::-webkit-scrollbar-thumb {
-  background: red;
-}
-
-min-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: blue;
-}

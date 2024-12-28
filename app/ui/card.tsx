@@ -52,12 +52,7 @@ export function Card({
 
   useEffect(() => {
     const updateMarginTop = () => {
-      if (id !== 0) {
-        if (window.innerWidth >= 420) setMarginTop("0px");
-        else if (window.innerWidth >= 320) setMarginTop(`${465 * id}px`);
-        else if (window.innerWidth >= 220) setMarginTop(`${315 * id}px`);
-        else if (window.innerWidth >= 120) setMarginTop(`${165 * id}px`);
-      }
+      setMarginTop("0px");
     };
 
     updateMarginTop();
@@ -97,8 +92,9 @@ export function Card({
       style={{ marginTop: marginTop }}
       className={`
         relative flex flex-col items-center justify-start w-fit rounded-3xl transition ease-in-out duration-500
-        mb-[590px]
-        ml3:w-[420px] ml3:h-[600px] ml3:mb-0
+        ml3:w-[420px] ml3:h-[600px]
+        ml2:h-[450px] ml2:w-[320px]
+        ml1:h-[300px] ml1:w-[220px]
         cards
       `}
     >
@@ -172,7 +168,7 @@ export const PlusesCards = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-nowrap overflow-x-auto ml3:w-full ml3:max-w-[1260px] min-scrollbar x-scroll-center"
+      className="ml3:flex ml3:flex-nowrap ml3:overflow-x-auto ml3:w-full ml3:max-w-[1260px] min-scrollbar x-scroll-center ml3:h-[600px] ml2:h-[1350px] ml1:h-[900px] ml3:gap-y-0 mb-5"
       style={{
         scrollbarColor: "#e7e5e4 #f4f4f5",
         scrollbarWidth: "thin",
@@ -181,7 +177,7 @@ export const PlusesCards = () => {
       }}
     >
       {cards.map((card) => (
-        <div key={card.id}>
+        <div key={card.id} className="mb-[10px] last:mb-0">
           <Card
             heading={card.heading}
             description={card.description}

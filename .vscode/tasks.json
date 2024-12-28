@@ -6,7 +6,8 @@
       "script": "dev",
       "runOptions": {
         "runOn": "folderOpen"
-      }
+      },
+      
     },
   ]
 }
