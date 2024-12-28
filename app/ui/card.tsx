@@ -168,7 +168,7 @@ export const PlusesCards = () => {
   return (
     <div
       ref={ref}
-      className="ml3:flex ml3:flex-nowrap ml3:overflow-x-auto ml3:w-full ml3:max-w-[1260px] min-scrollbar x-scroll-center ml3:h-[600px] ml2:h-[1350px] ml1:h-[900px] ml3:gap-y-0 mb-5"
+      className="ml3:flex ml3:flex-nowrap ml3:overflow-x-auto ml3:w-full ml3:max-w-[1260px] min-scrollbar x-scroll-center ml3:gap-y-0 mb-5"
       style={{
         scrollbarColor: "#e7e5e4 #f4f4f5",
         scrollbarWidth: "thin",
