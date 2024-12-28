@@ -121,7 +121,7 @@ export function Card({
           height={600}
           style={{ filter: `brightness(${imageBrightness}%)` }}
           className={`
-            absolute w-[400px] h-[600px] rounded-3xl z-0 transition ease-in-out duration-1000 
+            absolute w-[400px] h-[600px] rounded-3xl z-0 transition ease-in-out duration-1000 bg-[${bg}]
             ml1:w-[200px] ml1:h-[300px] 
             ml2:w-[300px] ml2:h-[450px] 
             ml3:w-[400px] ml3:h-[600px] 
