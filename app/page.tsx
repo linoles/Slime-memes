@@ -13,7 +13,7 @@ export default function Page() {
         <span
           className={`text-[5cqi] font-medium text-slate-700 mb-[10px] typing text-center ${tektur.className}`}
         >
-          Что я могу получить? 
+          Что я могу получить?
         </span>
         <PlusesCards />
       </div>
