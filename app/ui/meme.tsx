@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MemeProps, memes } from "../lib/definitions";
 import clsx from "clsx";
 import { rubikVinyl } from "./fonts";
@@ -22,22 +21,28 @@ const changeCurrentMeme = (id: number) => {
     el.classList.remove(
       "border-l-[2px]",
       "border-zinc-700",
-      "ml-[20px]",
-      "pl-[15px]"
+      "ml3:ml-[20px]",
+      "ml3:pl-[15px]",
+      "ml-[5px]",
+      "pl-[10px]"
     );
-    el.classList.add("ml-[35px]");
+    el.classList.add("ml3:ml-[35px]");
+    el.classList.add("ml-[15px]");
   });
   document
     .querySelector<HTMLDivElement>(`.meme.id${currentPhotoId}`)
     ?.classList.add(
       "border-l-[2px]",
       "border-zinc-700",
-      "ml-[20px]",
-      "pl-[15px]"
+      "ml3:ml-[20px]",
+      "ml3:pl-[15px]",
+      "ml-[5px]",
+      "pl-[10px]"
     );
   document
     .querySelector<HTMLDivElement>(`.meme.id${currentPhotoId}`)
-    ?.classList.remove("ml-[35px]");
+    ?.classList.remove("ml3:ml-[35px]");
+  document.querySelector<HTMLDivElement>(`.meme.id${currentPhotoId}`)?.classList.remove("ml-[15px]");
 };
 
 export default function Meme({ heading, tags, file, id, date }: MemeProps) {
@@ -61,9 +66,9 @@ export default function Meme({ heading, tags, file, id, date }: MemeProps) {
         "meme flex flex-col w-full pb-[6px] cursor-pointer id" +
         id +
         clsx({
-          " border-l-[2px] border-zinc-700 ml-[20px] pl-[15px]":
+          " border-l-[2px] border-zinc-700 ml-[5px] pl-[10px] ml3:ml-[20px] ml3:pl-[15px]":
             isCurrent,
-          " ml-[35px]": !isCurrent,
+          " ml3:ml-[35px] ml-[15px]": !isCurrent,
         })
       }
       style={{

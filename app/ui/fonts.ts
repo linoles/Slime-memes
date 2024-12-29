@@ -22,4 +22,4 @@ export const rubikVinyl = Rubik_Vinyl({
   weight: "400",
 })
 export const chapterStyle = "flex flex-col items-center justify-center relative ";
-export const chapterHeadingStyle = `text-[5cqi] font-medium text-slate-700 mb-[10px] typing text-center ${tektur.className}`;
+export const chapterHeadingStyle = `ml3:text-[5cqi] ml2:text-[7cqi] ml1:text-[9cqi] text-[10cqi] font-medium text-slate-700 mb-[10px] typing text-center ${tektur.className}`;
