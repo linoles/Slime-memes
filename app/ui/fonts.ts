@@ -1,4 +1,4 @@
-import { Inter, Nunito_Sans, Roboto_Condensed, Tektur } from "next/font/google";
+import { Inter, Nunito_Sans, Roboto_Condensed, Tektur, Rubik_Vinyl } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +15,11 @@ export const robotoCondensed = Roboto_Condensed({
 export const tektur = Tektur({
   subsets: ["latin", "cyrillic"],
   variable: "--font-tektur",
+})
+export const rubikVinyl = Rubik_Vinyl({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-rubik-vinyl",
+  weight: "400",
 })
 export const chapterStyle = "flex flex-col items-center justify-center relative ";
 export const chapterHeadingStyle = `text-[5cqi] font-medium text-slate-700 mb-[10px] typing text-center ${tektur.className}`;

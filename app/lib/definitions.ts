@@ -88,6 +88,8 @@ export const reviews = [
 ]
 
 export interface MemeProps {
+  heading: string;
+  tags: string[];
   file: string;
   date: number;
   id: number;
@@ -95,23 +97,24 @@ export interface MemeProps {
 
 export const memes =  [
   {
-    file: "meme0.jpg",
+    heading: "IT МЕМЫ",
+    tags: ["IT", "по_моему_смешно", "жиза"],
+    file: "/meme0.jpg",
     date: 0,
     id: 0,
   },
   {
-    file: "meme1.jpg",
+    heading: "ПАЦАНСКИЕ МЕМЫ",
+    tags: ["по_моему_смешно", "жиза"],
+    file: "/meme1.jpg",
     date: 0,
     id: 1,
   },
   {
-    file: "meme2.jpg",
+    heading: "МЕМЫ С КОТАМИ",
+    tags: ["кот"],
+    file: "/meme2.jpg",
     date: 0,
     id: 2,
-  },
-  {
-    file: "meme3.jpg",
-    date: 0,
-    id: 3,
   },
 ]
