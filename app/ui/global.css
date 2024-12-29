@@ -44,8 +44,8 @@ body {
   overflow: hidden;
   white-space: nowrap;
   padding-right: 5px;
-  border-right: 0.1em solid #334155;
-  animation: typing 3s steps(17), blink-caret 0.5s step-end alternate;
+  border-right: 0.1em solid transparent;
+  animation: typing 3s steps(17), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -58,7 +58,13 @@ body {
 }
 
 @keyframes blink-caret {
-  50% {
+  from,
+  to {
     border-color: transparent;
   }
+  50% {
+    border-color: #334155;
+  }
 }
+
+::-webkit-scrollbar { display: none; }

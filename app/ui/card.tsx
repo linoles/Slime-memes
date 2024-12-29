@@ -5,36 +5,7 @@ import Image from "next/image";
 import { robotoCondensed } from "@/app/ui/fonts";
 import React, { useEffect, useState } from "react";
 import "@/app/ui/global.css";
-
-export const cards = [
-  {
-    heading: "СМЕХ",
-    description:
-      "Конечно же, смех! Для чего же ещё может быть канал по мемам? Здесь вы получите самые угарные мемы. :) Кстати, у нас нет баянов. (Почти)",
-    bg: "#a3a3a3",
-    color: "white",
-    photoPath: "/fun.jpg",
-    id: 0,
-  },
-  {
-    heading: "ОТЛИЧНОЕ КОМЬЮНИТИ",
-    description:
-      "А как же без комьюнити самых лучших подписчиков, постоянно обсуждающих мемы нашего канала? И они присутствуют в нашем дружном канале!",
-    bg: "#a3a3a3",
-    color: "white",
-    photoPath: "/comunity.jpg",
-    id: 1,
-  },
-  {
-    heading: "МЕМЫ ПРО АДМИНОВ",
-    description:
-      "Также в нашем канале присутствуют интересные и смешные мемы про админов, которые уж точно не могут быть в другом канале.",
-    bg: "#a3a3a3",
-    color: "white",
-    photoPath: "/fun.jpg",
-    id: 2,
-  },
-];
+import { cards } from "@/app/lib/definitions";
 
 export function Card({
   heading,
