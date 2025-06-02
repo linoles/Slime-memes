@@ -1,8 +1,11 @@
+'use client';
+
 import Image from "next/image";
 import { ReviewProps, reviews } from "../lib/definitions";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 
-export default function Review({ author, text, file, id }: ReviewProps) {
+export const Review = ({ author, text, file, id }: ReviewProps) => {
   return (
     <div
       className={`flex ${clsx({
@@ -44,17 +47,22 @@ export default function Review({ author, text, file, id }: ReviewProps) {
       </div>
     </div>
   );
-}
+};
 
 export const GoodReviews = () => {
+  const [shuffledReviews, setShuffledReviews] = useState(reviews);
+
+  useEffect(() => {
+    const shuffled = [...reviews].sort(() => 0.5 - Math.random());
+    shuffled.forEach((review, index) => (review.id = index));
+    setShuffledReviews(shuffled);
+  }, []);
+
   const classNames = {
     left: "ml-[10px] mr-[10px] mb-[10px] last:mb-0 flex justify-start",
     right: "ml-[10px] mr-[10px] mb-[10px] last:mb-0 flex justify-end",
   };
-  const shuffledReviews = [...reviews].sort(() => 0.5 - Math.random());
-  shuffledReviews.map(
-    (review) => (review.id = shuffledReviews.indexOf(review))
-  );
+
   return (
     <div className="w-full max-w-[1260px]">
       {shuffledReviews.map((review) => (
@@ -76,3 +84,4 @@ export const GoodReviews = () => {
     </div>
   );
 };
+

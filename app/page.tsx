@@ -6,6 +6,7 @@ import { PlusesCards } from "./ui/card";
 import { chapterHeadingStyle, chapterStyle } from "./ui/fonts";
 import { GoodReviews } from "./ui/review";
 import { BestMemes } from "./ui/meme";
+import { FAQ } from "./ui/faq";
 
 export default function Page() {
   return (

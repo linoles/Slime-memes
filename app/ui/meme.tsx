@@ -1,3 +1,5 @@
+'use client';
+
 import { MemeProps, memes } from "../lib/definitions";
 import clsx from "clsx";
 import { rubikVinyl } from "./fonts";

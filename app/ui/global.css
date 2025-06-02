@@ -45,7 +45,7 @@ body {
   white-space: nowrap;
   padding-right: 5px;
   border-right: 0.1em solid transparent;
-  animation: typing 3s steps(17), blink-caret 0.75s step-end infinite;
+  animation: typing 3s steps(17);
 }
 
 @keyframes typing {
@@ -54,16 +54,6 @@ body {
   }
   to {
     width: 17.5ch;
-  }
-}
-
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #334155;
   }
 }
 
