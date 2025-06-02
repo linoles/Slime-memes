@@ -132,7 +132,7 @@ export default function Page() {
             ]} />
           </div>
           <div className="h-fit w-fit">
-            <p style={{ textAlign: "right", fontSize: "0.4rem" }}>**Усилия для создания сайта приложил <a href="https://t.me/linolef" className="text-blue-500 cursor-pointer">linoles</a>. Правила были созданы <a href="https://t.me/Kirill_Chepep" className="text-blue-500 cursor-pointer">Серафимом</a></p>
+            <p style={{ textAlign: "right", fontSize: "0.4rem" }}>**Усилия для создания сайта приложил <a href="https://t.me/linolef" className="text-blue-500 cursor-pointer">linoles</a>. Правила были созданы <a href="https://t.me/Kamar08" className="text-blue-500 cursor-pointer">Камаром</a></p>
           </div>
         </div>
       </div>
