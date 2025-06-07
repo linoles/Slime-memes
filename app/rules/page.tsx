@@ -8,10 +8,9 @@ interface RulesBlockProps {
   rules: string[];
   punishments: string[];
   info?: string;
-  phone?: boolean;
 }
 
-const RulesBlock: React.FC<RulesBlockProps> = ({ title, rules, punishments, info, phone = false }) => {
+const RulesBlock: React.FC<RulesBlockProps> = ({ title, rules, punishments, info }) => {
   return (
     <div className="rules-block w-full h-full mt-3">
       <h2 className="text-center font-bold">{title}</h2>
