@@ -185,8 +185,50 @@ export default function Page() {
               text="Upd на 7 июня: Камар недавно решил устроить чистки и забанил кучу людей. Огромное количество, среди которых было очень много активных людей, олдов, и прочих заслуженных людей. Много кто не был виновен и не был даже со мной связан, но получил бан. Камар подтвердил статус кровавого деспота."
             />
             <Info
+              color="red"
+              text="Также за Камаром замечена одна ещё более ужасная история. <br> В чате ширу, одной художницы, когда он узнал что Индзами (другая художница) живёт с ним в одном городе, начал упорно требовать встречи. Дальше, когда он получил отказ, он перешел к запугиванию и даже деанону. Камару 17-18 лет, Индзами 14."
+            />
+            <div className="relative">
+              <button
+                onClick={() => {
+                  const imgElement = document.getElementById("proof-image3") as HTMLImageElement;
+                  const currentSrc = imgElement.src;
+                  const currentIndex = parseInt(currentSrc.match(/(\d+)\.jpg$/)![1], 10);
+                  const newIndex = currentIndex === 1 ? 5 : currentIndex - 1;
+                  imgElement.src = `/prooves3/${newIndex}.jpg`;
+                }}
+                className="absolute left-[-25px] top-1/2 transform -translate-y-1/2 text-3xl bg-white/50 rounded-full p-2"
+              >
+                {"<-"}
+              </button>
+              <img
+                id="proof-image3"
+                src="/prooves4/1.jpg"
+                alt="proof-1"
+                className="w-full max-w-xs my-2"
+                style={{ objectFit: "cover" }}
+              />
+              <button
+                onClick={() => {
+                  const imgElement = document.getElementById("proof-image3") as HTMLImageElement;
+                  const currentSrc = imgElement.src;
+                  const currentIndex = parseInt(currentSrc.match(/(\d+)\.jpg$/)![1], 10);
+                  const newIndex = currentIndex === 5 ? 1 : currentIndex + 1;
+                  imgElement.src = `/prooves4/${newIndex}.jpg`;
+                }}
+                className="absolute right-[-25px] top-1/2 transform -translate-y-1/2 text-3xl bg-white/50 rounded-full p-2"
+              >
+                {"->"}
+              </button>
+            </div>
+            <Info
+              color="blue"
+              text="Весь конкурс - наеб, чтобы посмеяться с преданных подписчиков."
+            />
+            <div className="h-[10px]"></div>
+            <Info
               color="black"
-              text={`Надеюсь, дорогой читатель, я тебе открыл глаза на Камара и ты понимаешь теперь, что к чему. <br><br> <div class='w-screen text-center'><h2 class='${tektur.className} text-2xl font-extrabold'>Вступай, если ты за правду</h2><b><a href='https://t.me/ANTIKAMARACTION' class='text-blue-400 underlined text-2xl'>Канал AkA (ТЫК)</a><br><a href='https://t.me/+6T5251Z70dg0MGIy' class='text-blue-400 underlined text-2xl'>Чат AkA (ТЫК)</a></b></div>`}
+              text={`<div class='text-center'><b>Надеюсь, дорогой читатель, я тебе открыл глаза на Камара и ты понимаешь теперь, что к чему.</b></div> <br> <div class='w-screen text-center'><h2 class='${tektur.className} text-2xl font-extrabold'>Вступай, если ты за правду</h2><b><a href='https://t.me/ANTIKAMARACTION' class='text-blue-400 underlined text-2xl'>Канал AkA (ТЫК)</a><br><a href='https://t.me/+6T5251Z70dg0MGIy' class='text-blue-400 underlined text-2xl'>Чат AkA (ТЫК)</a></b></div>`}
             />
           </div>
         </div>
