@@ -23,45 +23,13 @@ const Info: React.FC<InfoProps> = ({ color, text }) => {
 };
 
 export default function Page() {
-  useEffect(() => {
-    const container = document.createElement("div");
-    container.className = "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50";
-    const alert = document.createElement("div");
-    alert.className = "bg-white p-4 rounded-lg shadow-lg w-96 flex flex-col justify-center items-center";
-    const title = document.createElement("h2");
-    title.className = "text-center text-2xl font-bold mb-4";
-    title.textContent = "Телеграм-канал @prizrako";
-    const text = document.createElement("p");
-    text.className = "text-center";
-    text.textContent = "Хотите пообщаться или вам нужна психологическая помощь? Тогда вам поможет этот канал (Бот)";
-    const butDiv = document.createElement("div");
-    butDiv.className = "flex justify-center mt-4 gap-4";
-    const button = document.createElement("button");
-    button.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-    button.textContent = "Зайти";
-    const button2 = document.createElement("button");
-    button2.className = "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
-    button2.textContent = "Закрыть";
-    button.onclick = () => {
-      window.open("https://t.me/prizrako", "_blank");
-      container.remove();
-    };
-    button2.onclick = () => container.remove();
-    alert.appendChild(title);
-    alert.appendChild(text);
-    butDiv.appendChild(button);
-    butDiv.appendChild(button2);
-    alert.appendChild(butDiv);
-    container.appendChild(alert);
-    document.body.appendChild(container);
-  })
   return (
     <div className="overflow-y-auto h-screen w-full overflow-x-hidden">
       <h1
         className={`title w-full h-fit my-3 font-bold text-center text-[6cqi] cursor-pointer ${tektur.className}`}
         onClick={() =>
           alert(
-            "Сборник всего того, что нужно. Написано Серафимом (@Kirill_Chepep), сайт реализовал Linoles (@linolef)."
+            "Сборник всего того, что нужно. Написано Серафимом (@Kirill_Chepep), сайт реализовал Аноним :)."
           )
         }
       >
